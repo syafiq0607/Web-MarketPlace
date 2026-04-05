@@ -1,0 +1,439 @@
+/* --- Global Variables --- */
+:root {
+    --bg-dark: #0f1014;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --accent-gold: #d4af37;
+    --accent-gold-hover: #b5952f;
+    --transition: all 0.3s ease;
+}
+
+/* --- Base Setup --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: transparent; /* Change from var(--bg-dark) to transparent */
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- Typography --- */
+h1, h2, h3 { font-weight: 600; }
+a { text-decoration: none; color: inherit; }
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 16, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--card-border);
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent-gold);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent-gold);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    background: transparent; /* REMOVE the radial-gradient and set to transparent */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+/* --- Buttons --- */
+.btn-primary, .btn-secondary {
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    outline: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--accent-gold);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-gold-hover);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-main);
+    color: var(--bg-dark);
+}
+
+/* --- Packages Section --- */
+.packages-section {
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.packages-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 4rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    position: relative;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-gold);
+}
+
+.pricing-card.featured {
+    border-color: var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-gold);
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.price span {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.features li {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-card button {
+    width: 100%;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 4rem 5%;
+    text-align: center;
+    border-top: 1px solid var(--card-border);
+    background: #0a0a0c;
+}
+
+footer h2 {
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Add hamburger menu logic later if needed */
+    .hero h1 { font-size: 2.5rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+}
+
+/* Apply this class to your body or a specific section */
+.animated-gradient-bg {
+    /* A dark, luxurious color palette blending charcoal and deep bronze/gold */
+    background: linear-gradient(-45deg, #0f1014, #1c1d24, #2a2318, #0f1014);
+    background-size: 400% 400%;
+    animation: shiftGradient 15s ease infinite;
+    
+    /* Ensure it covers the full screen */
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+
+/* The Animation Keyframes */
+@keyframes shiftGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container to hold the background */
+.ambient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Keeps it behind all your text and cards */
+    background-color: #0f1014;
+    overflow: hidden;
+}
+
+/* Base styling for the glowing orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Creates the soft, glowing effect */
+    opacity: 0.3; /* Keeps it subtle so text remains readable */
+    animation: floatOrb 20s infinite alternate ease-in-out;
+}
+
+/* The Gold Orb */
+.orb-gold {
+    width: 45vw;
+    height: 45vw;
+    background: #d4af37; /* Champagne Gold */
+    top: -10%;
+    left: -10%;
+    /* Use the new gold animation */
+    animation: floatGold 25s infinite alternate ease-in-out;
+}
+
+/* The Dark Contrast Orb */
+.orb-dark {
+    width: 35vw;
+    height: 35vw;
+    background: #3a3f4c; /* Deep slate */
+    bottom: -10%;
+    right: -10%;
+    /* Use the new dark animation */
+    animation: floatDark 30s infinite alternate ease-in-out;
+}
+
+/* --- The New Motion Animations --- */
+
+/* Gold orb moves in a large, smooth sweeping motion */
+@keyframes floatGold {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(8vw, 50vh) scale(1.1);
+    }
+    66% {
+        transform: translate(-30vw, 45vh) scale(0.9);
+    }
+    100% {
+        transform: translate(32vw, -45vh) scale(1.2);
+    }
+}
+
+/* Dark orb moves in an opposing, complimentary path */
+@keyframes floatDark {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-10vw, -15vh) scale(1.15);
+    }
+    66% {
+        transform: translate(5vw, -20vh) scale(0.85);
+    }
+    100% {
+        transform: translate(-8vw, 10vh) scale(1.1);
+    }
+}
+
+.ambient-bg2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Keeps it behind all your text and cards */
+    background-color: #0f1014;
+    overflow: hidden;
+}
+
+
+/* Base styling for the glowing orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Creates the soft, glowing effect */
+    opacity: 0.3; /* Keeps it subtle so text remains readable */
+    animation: floatOrb 20s infinite alternate ease-in-out;
+}
+
+/* The Gold Orb */
+.orb-gold {
+    width: 45vw;
+    height: 45vw;
+    background: #d4af37; /* Champagne Gold */
+    top: -10%;
+    left: -10%;
+    /* Use the new gold animation */
+    animation: floatGold 25s infinite alternate ease-in-out;
+}
+
+/* The Dark Contrast Orb */
+.orb-dark {
+    width: 35vw;
+    height: 35vw;
+    background: #3a3f4c; /* Deep slate */
+    bottom: -10%;
+    right: -440%;
+    /* Use the new dark animation */
+    animation: floatDark 30s infinite alternate ease-in-out;
+}
+
+/* --- The New Motion Animations --- */
+
+/* Gold orb moves in a large, smooth sweeping motion */
+@keyframes floatGold {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(8vw, 50vh) scale(1.1);
+    }
+    66% {
+        transform: translate(-30vw, 45vh) scale(0.9);
+    }
+    100% {
+        transform: translate(32vw, -45vh) scale(1.2);
+    }
+}
+
+/* Dark orb moves in an opposing, complimentary path */
+@keyframes floatDark {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-10vw, -15vh) scale(1.15);
+    }
+    66% {
+        transform: translate(5vw, -20vh) scale(0.85);
+    }
+    100% {
+        transform: translate(-8vw, 10vh) scale(1.1);
+    }
+}
